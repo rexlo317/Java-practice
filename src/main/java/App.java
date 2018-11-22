@@ -12,6 +12,23 @@ public class App {
         Vehicle vehicleB = new Vehicle("Car", "Car Brand");
         vehicleA.increaseSpeed(10);
         vehicleB.increaseSpeed(50);
+        Car car = new Car("My Car", "Goodbye");
+        car.increaseSpeed(180);
+        car.increaseSpeed(200);
+        Vehicle.everyoneCanDrive();
+    }
+}
+
+class Car extends Vehicle{
+    public Car(String name, String brand) {
+        super(name, brand);
+    }
+    @Override
+    public void increaseSpeed(int increaseSpeed){
+        if (increaseSpeed<200)
+            super.increaseSpeed(increaseSpeed);
+        else
+            System.out.println("Speed up failed!");
     }
 }
 
@@ -24,5 +41,9 @@ class Vehicle{
     }
     public void increaseSpeed(int increaseSpeed){
         System.out.println("Car Name: " + this.name + ", Car Brand: " + this.brand + ". Increase speed to " + increaseSpeed);
+    }
+    public static void everyoneCanDrive(){
+        System.out.println("Everyone can drive this car"
+        );
     }
 }
