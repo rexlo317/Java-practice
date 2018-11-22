@@ -19,8 +19,10 @@ public class App {
         bus.increaseSpeed(80);
         bus.increaseSpeed(81);
         Vehicle.everyoneCanDrive();
-        Driver Rex = new Driver("Rex", vehicleA);
-        Rex.speedUp(80);
+        Driver rex = new Driver("Rex", vehicleA);
+        rex.speedUp(80);
+        Driver antony = new Driver("Antony", car);
+        antony.speedUp(200);
         Driver baby = new Driver("Baby", bus);
         baby.speedUp(100);
     }
@@ -59,7 +61,7 @@ class Car extends Vehicle{
     }
     @Override
     public void increaseSpeed(int increaseSpeed){
-        if (increaseSpeed<200)
+        if (increaseSpeed<=200)
             super.increaseSpeed(increaseSpeed);
         else
             System.out.println(this.getClass().getName() + " Speed up failed!");
