@@ -12,10 +12,44 @@ public class App {
         Vehicle vehicleB = new Vehicle("Car", "Car Brand");
         vehicleA.increaseSpeed(10);
         vehicleB.increaseSpeed(50);
-        Car car = new Car("My Car", "Goodbye");
+        Vehicle car = new Car("My Car", "Goodbye");
         car.increaseSpeed(180);
         car.increaseSpeed(200);
+        Vehicle bus = new Bus("ABCBus", "ABC");
+        bus.increaseSpeed(80);
+        bus.increaseSpeed(81);
         Vehicle.everyoneCanDrive();
+        Driver Rex = new Driver("Rex", vehicleA);
+        Rex.speedUp(80);
+        Driver baby = new Driver("Baby", bus);
+        baby.speedUp(100);
+    }
+}
+
+class Driver{
+    private String name;
+    private Vehicle vehicle;
+    public Driver(String name, Vehicle vehicle){
+        this.name = name;
+        this.vehicle = vehicle;
+    }
+    public void speedUp(int increaseSpeed){
+        System.out.println(this.getClass().getName() + " is " + this.name + ".");
+        vehicle.increaseSpeed(increaseSpeed);
+    }
+}
+
+class Bus extends Vehicle {
+    public Bus(String name, String brand) {
+        super(name, brand);
+    }
+
+    @Override
+    public void increaseSpeed(int increaseSpeed) {
+        if (increaseSpeed < 81)
+            super.increaseSpeed(increaseSpeed);
+        else
+            System.out.println(this.getClass().getName() + " Speed up failed!");
     }
 }
 
@@ -28,7 +62,7 @@ class Car extends Vehicle{
         if (increaseSpeed<200)
             super.increaseSpeed(increaseSpeed);
         else
-            System.out.println("Speed up failed!");
+            System.out.println(this.getClass().getName() + " Speed up failed!");
     }
 }
 
@@ -43,7 +77,6 @@ class Vehicle{
         System.out.println("Car Name: " + this.name + ", Car Brand: " + this.brand + ". Increase speed to " + increaseSpeed);
     }
     public static void everyoneCanDrive(){
-        System.out.println("Everyone can drive this car"
-        );
+        System.out.println("Everyone can drive this car");
     }
 }
