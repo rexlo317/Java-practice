@@ -4,11 +4,14 @@ public class IPhoneRobot{
     public IPhoneRobot(String name, Mobile mobile){
         this.name = name;
         if (mobile.getClass().getName() != "IPhone")
-            System.out.println("Construction failed, Robot cannot use Iphone");
+            System.out.println("Construction failed, Robot can only use Iphone, now using "+ mobile.getClass().getName() + '.');
         this.mobile = mobile;
     }
     public void robotMakeACall(String message){
-        this.mobile.makeACall("I am Robot" + message);
+        if (mobile.getClass().getName() != "IPhone")
+            System.out.println("Robot can only use Iphone, now using "+ mobile.getClass().getName() + '.');
+        else
+            this.mobile.makeACall("I am Robot" + message);
     }
 
     public Mobile getMobile() {

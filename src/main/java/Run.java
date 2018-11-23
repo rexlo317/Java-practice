@@ -11,6 +11,7 @@ public class Run {
         Mobile android = new AndroidPhone( "G7 ThinQ", "Black", "LG");
         android.makeACall("Hail Android Forever");
 
+        System.out.println("=============Test Person==============");
         Person tom = new Person(mobile, "Tom");
         tom.personMakeACall("I am " + tom.getName());
 
@@ -19,13 +20,13 @@ public class Run {
 
         tom.setMobile(android);
         tom.personMakeACall("I am " + tom.getName());
-
+        System.out.println("=============Test Robot==============");
         IPhoneRobot robot = new IPhoneRobot("Robot", mobile);
-        robot.robotMakeACall("Robot Message: ");
+        robot.robotMakeACall("");
         robot.setMobile(iPhone);
-        robot.robotMakeACall("Robot Message: ");
+        robot.robotMakeACall("");
         robot.setMobile(android);
-        robot.robotMakeACall("Robot Message: ");
+        robot.robotMakeACall("");
 
     }
 }
