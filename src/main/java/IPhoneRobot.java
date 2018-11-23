@@ -23,6 +23,8 @@ public class IPhoneRobot{
     }
 
     public void setMobile(Mobile mobile) {
+        if (mobile.getClass().getName() != "IPhone")
+            System.out.println("Construction failed, Robot can only use Iphone, now using "+ mobile.getClass().getName() + '.');
         this.mobile = mobile;
     }
 
