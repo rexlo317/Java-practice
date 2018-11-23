@@ -4,12 +4,16 @@
 public class Run {
 
     public static void main(String[] args) {
+        System.out.println("=============Test Phone==============");
         Mobile mobile = new Mobile ("3310", "White", "Nokia");
         mobile.makeACall("UWOT bullet");
+        mobile.getMobileInfo();
         Mobile iPhone = new IPhone("IPhone 10", "Black", "Apple");
         iPhone.makeACall("No more apple product please");
+        iPhone.getMobileInfo();
         Mobile android = new AndroidPhone( "G7 ThinQ", "Black", "LG");
         android.makeACall("Hail Android Forever");
+        android.getMobileInfo();
 
         System.out.println("=============Test Person==============");
         Person tom = new Person(mobile, "Tom");
